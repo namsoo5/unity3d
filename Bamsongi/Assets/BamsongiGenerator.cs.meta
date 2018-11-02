@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a281f899c0e7c9e47b261aaa42432914
+timeCreated: 1541059800
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - bamsongiPrefab: {fileID: 176800, guid: beff966fc59e5b94eb221dcebfa892ee, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
