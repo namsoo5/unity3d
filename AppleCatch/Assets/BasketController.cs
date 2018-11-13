@@ -3,9 +3,17 @@ using System.Collections;
 
 public class BasketController : MonoBehaviour {
 
+	//audio add
+	public AudioClip appleSE;
+	public AudioClip bombSE;
+	AudioSource aud;  //audiosource는 1개만 등록가능하기때문에 음원을제어해야함
+
+	GameObject director;
 	// Use this for initialization
 	void Start () {
 	
+		this.aud = GetComponent<AudioSource> ();
+		this.director = GameObject.Find ("GameDirector");
 	}
 	
 	// Update is called once per frame
@@ -22,11 +30,14 @@ public class BasketController : MonoBehaviour {
 		}
 	}
 		
-		void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Apple")
-			Debug.Log ("apple");
-		else if(other.gameObject.tag =="Bomb");
-			Debug.Log("bomb");
+		void OnTriggerEnter(Collider other){  
+		if (other.gameObject.tag == "Apple") {
+			this.aud.PlayOneShot (this.appleSE);
+			this.director.GetComponent<GameDirector> ().GetApple ();
+		} else if (other.gameObject.tag == "Bomb") {
+			this.aud.PlayOneShot (this.bombSE);
+			this.director.GetComponent<GameDirector> ().GetBomb ();
+		}
 
 			Destroy (other.gameObject);
 	}
