@@ -61,7 +61,7 @@ public class CharacterMove : MonoBehaviour {
 			if (arrived)
 				velocity = Vector3.zero;
 			else
-				velocity = direction + walkSpeed;
+				velocity = direction * walkSpeed;
 
 			//부드럽게 보간 처리 lerp(a,b,t) -> a~b값을보간 아래에서 t는 0~1사이수임 
 			velocity = Vector3.Lerp (currentVelocity, velocity, Mathf.Min (Time.deltaTime * 5.0f, 1.0f));
