@@ -45,7 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\CharaAnimation.cs" />
      <Compile Include="Assets\Script\CharacterMove.cs" />
+     <Compile Include="Assets\Script\CharacterStatus.cs" />
      <Compile Include="Assets\Script\FollowCamera.cs" />
      <Compile Include="Assets\Script\InputManager.cs" />
      <Compile Include="Assets\Script\PlayerCtrl.cs" />
