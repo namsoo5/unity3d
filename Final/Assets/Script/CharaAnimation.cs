@@ -23,6 +23,7 @@ public class CharaAnimation : MonoBehaviour {
 
 	void EndAttack(){
 		attacked = true;
+		Debug.Log ("End");
 	}
 
 	// Use this for initialization
@@ -41,8 +42,10 @@ public class CharaAnimation : MonoBehaviour {
 		if (attacked && !status.attacking) {
 			attacked=false;
 		}
+
 		animator.SetBool ("Attacking", (!attacked && status.attacking));
 
+	
 		if (!isDown && status.died) {
 			isDown = true;
 			animator.SetTrigger ("Down");
