@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerCtrl : MonoBehaviour {
 
@@ -22,16 +23,29 @@ public class PlayerCtrl : MonoBehaviour {
 	//다음스테이트
 	State nextState = State.Walking;
 
+	// 소지하고있는 돈
+	int money = 0;
+	GameObject moneytext;
+
+	public void GetMoney(int money){
+		this.money += money;
+	}
+
+
 	// Use this for initialization
 	void Start () {
 		inputManager = FindObjectOfType<InputManager> ();
 		status = GetComponent<CharacterStatus> ();
 		charaAnimation = GetComponent<CharaAnimation> ();
+
+		moneytext = GameObject.Find("MoneyText");//돈상태ui
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		//돈상태업데이트
+		moneytext.GetComponent<Text>().text = this.money.ToString("F0")+ " $";
+
 		switch (state) {
 		case State.Walking:
 			Walking ();
