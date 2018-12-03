@@ -47,12 +47,14 @@
   <ItemGroup>
      <Compile Include="Assets\Script\AttackArea.cs" />
      <Compile Include="Assets\Script\AttackAreaActivator.cs" />
+     <Compile Include="Assets\Script\BombCtrl.cs" />
      <Compile Include="Assets\Script\CharaAnimation.cs" />
      <Compile Include="Assets\Script\CharacterMove.cs" />
      <Compile Include="Assets\Script\CharacterStatus.cs" />
      <Compile Include="Assets\Script\EnemyCtrl.cs" />
      <Compile Include="Assets\Script\EnemyGeneratorCtrl.cs" />
      <Compile Include="Assets\Script\FollowCamera.cs" />
+     <Compile Include="Assets\Script\GameDirector.cs" />
      <Compile Include="Assets\Script\HitArea.cs" />
      <Compile Include="Assets\Script\InputManager.cs" />
      <Compile Include="Assets\Script\PlayerCtrl.cs" />

@@ -24,8 +24,11 @@ public class PlayerCtrl : MonoBehaviour {
 	State nextState = State.Walking;
 
 	// 소지하고있는 돈
-	int money = 0;
+	public int money = 0;
 	GameObject moneytext;
+
+	//폭탄던지기
+	public GameObject BombPrefab;
 
 	public void GetMoney(int money){
 		this.money += money;
@@ -40,11 +43,25 @@ public class PlayerCtrl : MonoBehaviour {
 
 		moneytext = GameObject.Find("MoneyText");//돈상태ui
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
 		//돈상태업데이트
 		moneytext.GetComponent<Text>().text = this.money.ToString("F0")+ " $";
+
+		if (Input.GetKeyDown (KeyCode.Space)) {  //폭탄던지기
+			GameObject bomb = Instantiate (BombPrefab) as GameObject;
+			float x = transform.position.x;
+			float y = transform.position.y + 1.5f;
+			float z = transform.position.z;
+
+			bomb.transform.position = new Vector3 (x, y, z);
+			bomb.GetComponent<BombCtrl>().Shoot(new Vector3(0,50,0));
+
+		}
+
+
 
 		switch (state) {
 		case State.Walking:
