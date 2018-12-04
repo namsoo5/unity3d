@@ -30,6 +30,11 @@ public class PlayerCtrl : MonoBehaviour {
 	//폭탄던지기
 	public GameObject BombPrefab;
 
+	//총알쏘기
+	public GameObject bullet;
+	public Transform firePos;
+
+
 	public void GetMoney(int money){
 		this.money += money;
 	}
@@ -45,22 +50,32 @@ public class PlayerCtrl : MonoBehaviour {
 	}
 
 
+	void Fire()
+	{
+		CreateBullte();
+	}
+
+	void CreateBullte()
+	{
+		Instantiate (bullet, firePos.position, firePos.rotation);  //폭탄생성
+	}
 	// Update is called once per frame
 	void Update () {
 		//돈상태업데이트
 		moneytext.GetComponent<Text>().text = this.money.ToString("F0")+ " $";
 
 		if (Input.GetKeyDown (KeyCode.Space)) {  //폭탄던지기
-			GameObject bomb = Instantiate (BombPrefab) as GameObject;
+			/*GameObject bomb = Instantiate (BombPrefab) as GameObject;
 			float x = transform.position.x;
 			float y = transform.position.y + 1.5f;
 			float z = transform.position.z;
 
 			bomb.transform.position = new Vector3 (x, y, z);
-			bomb.GetComponent<BombCtrl>().Shoot(new Vector3(0,50,0));
+			bomb.GetComponent<BombCtrl>().Shoot(new Vector3(0,50,0));*/
+
+			Fire ();
 
 		}
-
 
 
 		switch (state) {
@@ -85,7 +100,6 @@ public class PlayerCtrl : MonoBehaviour {
 				break;
 			}
 		}
-
 	}
 
 	void ChangeState(State nextState){

@@ -7,6 +7,7 @@ public class BombCtrl : MonoBehaviour {
 	bool touch = false;
 	// Use this for initialization
 	void Start () {
+		GetComponent<Rigidbody> ().AddForce (transform.forward * 1000.0f); //폭탄발사
 	}
 	
 	// Update is called once per frame
@@ -34,9 +35,9 @@ public class BombCtrl : MonoBehaviour {
 	}
 
 
-	public void Shoot(Vector3 dir)
+	/*public void Shoot(Vector3 dir)
 	{
-		GetComponent<Rigidbody> ().AddForce (dir); //폭탄날라감
+	GetComponent<Rigidbody> ().AddForce (dir); //폭탄날라감
 	}
-
+	*/
 }
