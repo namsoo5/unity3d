@@ -8,7 +8,7 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	//적을 저장한다.
 	GameObject[] existEnemys;
 	//액티브 최대수
-	public int maxEnemy = 2;
+	public int maxEnemy = 10;
 
 	// Use this for initialization
 	void Start () {

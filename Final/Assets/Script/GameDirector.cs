@@ -8,11 +8,14 @@ public class GameDirector : MonoBehaviour {
 	GameObject Player;
 	int PowerUpMoney = 300;   //업글할수록 증가하기위해변수로선언
 	int HpUpMoney = 200;
+	int BombMoney = 500;
 	GameObject HpMoneyText;  //증가한 텍스트를 변경시켜야함
 	GameObject PowerMoneyText;
 	GameObject RoundCountText;
+	GameObject BobmMoneyText;
 	float time=20;  //라운드타이머
-	int round=1;
+	public int round=1;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,24 +24,28 @@ public class GameDirector : MonoBehaviour {
 
 		HpMoneyText = GameObject.Find ("HpMoney");
 		PowerMoneyText = GameObject.Find("PowerMoney");
-
+		BobmMoneyText = GameObject.Find ("BombMoney");
 		RoundCountText = GameObject.Find ("RoundCount");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		int hp = Player.GetComponent<CharacterStatus> ().HP;
+		int maxhp = Player.GetComponent<CharacterStatus> ().MaxHP;
 		int power = Player.GetComponent<CharacterStatus> ().Power;
-		Infotext.GetComponent<Text> ().text = "Hp: " + hp + "\n" + "Power: " + power;
+		Infotext.GetComponent<Text> ().text = "Hp: " + hp + " / "+maxhp+"\n" + "Power: " + power;
 
-		time -= Time.deltaTime;
+		if (round != 4) {
+			time -= Time.deltaTime;
+		}
 		if(round<3)
 			RoundCountText.GetComponent<Text> ().text = "ROUND"+round+ "\n00:" + time.ToString("F2");  //라운드타이머
 		else//마지막라운드
 			RoundCountText.GetComponent<Text> ().text = "Final\n00:" + time.ToString("F2");  //라운드타이머
 
 			
-		if (time <= 0) {
+		if (time <= 0 && round <4) {
 			//다음라운드넘어가기
 			time=20;
 			round += 1;
@@ -46,6 +53,7 @@ public class GameDirector : MonoBehaviour {
 			Player.GetComponent<CharacterStatus> ().HP = Player.GetComponent<CharacterStatus> ().MaxHP; //새라운드풀피로시작
 			Player.GetComponent<PlayerCtrl> ().money += 500;
 		}
+
 
 
 	}
@@ -61,13 +69,22 @@ public class GameDirector : MonoBehaviour {
 		}
 	}
 
-	public void powerup(){
+	public void powerup(){  //공업버튼
 		if (Player.GetComponent<PlayerCtrl> ().money >= PowerUpMoney) {
 			Player.GetComponent<PlayerCtrl> ().money -= PowerUpMoney;
 			Player.GetComponent<CharacterStatus> ().Power += 10;
 			PowerUpMoney += 200;
 			PowerMoneyText.GetComponent<Text> ().text = PowerUpMoney.ToString ("F0");
 		}
+	}
+
+	public void buybomb(){
+		if (Player.GetComponent<PlayerCtrl> ().money >= BombMoney) {
+			Player.GetComponent<PlayerCtrl> ().money -= BombMoney;
+			Player.GetComponent<PlayerCtrl> ().bombcount += 1;
+			BobmMoneyText.GetComponent<Text> ().text = BombMoney.ToString ("F0");
+		}
+
 	}
 
 

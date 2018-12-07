@@ -7,7 +7,7 @@ public class BombCtrl : MonoBehaviour {
 	bool touch = false;
 	// Use this for initialization
 	void Start () {
-		GetComponent<Rigidbody> ().AddForce (transform.forward * 1000.0f); //폭탄발사
+		GetComponent<Rigidbody> ().AddForce (transform.forward * 500.0f); //폭탄발사
 	}
 	
 	// Update is called once per frame
@@ -16,7 +16,7 @@ public class BombCtrl : MonoBehaviour {
 			timer += Time.deltaTime;  //닿고나서 3초후삭제
 
 		}
-		if (timer >= 3 ) {  //3초뒤삭제
+		if (timer >= 1 ) {  //2초뒤삭제
 			Destroy (this.gameObject);
 		}
 	}
@@ -29,9 +29,9 @@ public class BombCtrl : MonoBehaviour {
 		
 		if (other.gameObject.tag == "enemy") {
 			this.GetComponent<ParticleSystem> ().Play ();  //폭발파티클
-			other.GetComponent<CharacterStatus> ().HP -= 20;
+			other.GetComponent<CharacterStatus> ().HP -= 80;
 			touch = true;
-		}
+		} 
 	}
 
 

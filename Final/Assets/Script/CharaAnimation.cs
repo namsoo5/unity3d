@@ -9,11 +9,13 @@ public class CharaAnimation : MonoBehaviour {
 	bool isDown = false;
 	bool attacked = false;
 
+
 	public bool IsAttacked(){
 		return attacked;
 	}
 
 	void StartAttackHit(){
+		
 		Debug.Log ("StartAttackHit");
 	}
 
@@ -45,7 +47,10 @@ public class CharaAnimation : MonoBehaviour {
 
 		animator.SetBool ("Attacking", (!attacked && status.attacking));
 
-	
+
+
+
+
 		if (!isDown && status.died) {
 			isDown = true;
 			animator.SetTrigger ("Down");
@@ -53,4 +58,6 @@ public class CharaAnimation : MonoBehaviour {
 		prePosition = transform.position;
 
 	}
+		
+
 }

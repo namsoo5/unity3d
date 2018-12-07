@@ -11,6 +11,12 @@ public class PlayerCtrl : MonoBehaviour {
 	CharaAnimation charaAnimation;
 	Transform attackTarget;
 	public float attackRange = 1.5f;
+	public GameObject strongattack;
+	public Transform attackPos;
+	public GameObject strongattack1;
+	public Transform attackPos1;
+	public GameObject strongattack2;
+	public Transform attackPos2;
 
 	//스테이트 종류
 	enum State{
@@ -28,9 +34,7 @@ public class PlayerCtrl : MonoBehaviour {
 	GameObject moneytext;
 
 	//폭탄던지기
-	public GameObject BombPrefab;
-
-	//총알쏘기
+	public int bombcount=2; //초기화2개
 	public GameObject bullet;
 	public Transform firePos;
 
@@ -49,6 +53,15 @@ public class PlayerCtrl : MonoBehaviour {
 		moneytext = GameObject.Find("MoneyText");//돈상태ui
 	}
 
+	//일정이상업글시 관통공격
+	void StartAttackHit(){
+		 if (status.Power >= 100) {
+			Fireattack ();
+			Fireattack1 ();
+		}else if (status.Power >= 50) {
+			Fireattack ();
+		}
+	}
 
 	void Fire()
 	{
@@ -59,6 +72,27 @@ public class PlayerCtrl : MonoBehaviour {
 	{
 		Instantiate (bullet, firePos.position, firePos.rotation);  //폭탄생성
 	}
+
+	void Fireattack()
+	{
+		Createattack();
+	}
+
+	void Createattack()  //공50이상시이펙트
+	{
+		Instantiate (strongattack, attackPos.position, attackPos.rotation);  //관통공격생성
+	}
+	void Fireattack1()
+	{
+		Createattack1();
+	}
+
+	void Createattack1()  //공100이상시이펙트
+	{
+		Instantiate (strongattack1, attackPos1.position, attackPos1.rotation);  //관통공격생성
+		Instantiate (strongattack2, attackPos2.position, attackPos2.rotation);  //관통공격생성
+	}
+
 	// Update is called once per frame
 	void Update () {
 		//돈상태업데이트
@@ -73,9 +107,13 @@ public class PlayerCtrl : MonoBehaviour {
 			bomb.transform.position = new Vector3 (x, y, z);
 			bomb.GetComponent<BombCtrl>().Shoot(new Vector3(0,50,0));*/
 
-			Fire ();
-
+			if (bombcount > 0) {
+				Fire ();
+				bombcount--;
+			}
 		}
+		//폭탄갯수갱신
+		GameObject.Find("BombCount").GetComponent<Text>().text=bombcount.ToString("F0");
 
 
 		switch (state) {
@@ -112,29 +150,32 @@ public class PlayerCtrl : MonoBehaviour {
 
 	void Walking()
 	{
-		if (inputManager.Clicked()) {
-			Vector2 clickPos = inputManager.GetCursorPosition ();
-			//RayCast로 대상물을조사한다.
-			Ray ray = Camera.main.ScreenPointToRay (clickPos);
-			RaycastHit hitInfo;
+		if (inputManager.Clicked ()) {
+			if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject ()) {  //ui클릭시 이동 x
+				Vector2 clickPos = inputManager.GetCursorPosition ();
+				//RayCast로 대상물을조사한다.
+				Ray ray = Camera.main.ScreenPointToRay (clickPos);
+				RaycastHit hitInfo;
 
 
-			if (Physics.Raycast (ray, out hitInfo, RayCastMaxDistance, (1 << LayerMask.NameToLayer ("Ground")) | (1<<LayerMask.NameToLayer("EnemyHit")))) {
-				//지면이클릭되엇다
-				if(hitInfo.collider.gameObject.layer==LayerMask.NameToLayer("Ground"))
-					SendMessage("SetDestination", hitInfo.point);
-				//적이클릭되었다
-				if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer ("EnemyHit")) {
-					//수평거리를 체크해서 공격할지 결정한다.
-					Vector3 hitPoint = hitInfo.point;
-					hitPoint.y = transform.position.y;
-					float distance = Vector3.Distance (hitPoint, transform.position);
-					if (distance < attackRange) {
-						//공격
-						attackTarget = hitInfo.collider.transform;
-						ChangeState (State.Attacking);
-					} else
+				if (Physics.Raycast (ray, out hitInfo, RayCastMaxDistance, (1 << LayerMask.NameToLayer ("Ground")) | (1 << LayerMask.NameToLayer ("EnemyHit")))) {
+					//지면이클릭되엇다
+					if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer ("Ground"))
 						SendMessage ("SetDestination", hitInfo.point);
+					//적이클릭되었다
+					if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer ("EnemyHit")) {
+						//수평거리를 체크해서 공격할지 결정한다.
+						Vector3 hitPoint = hitInfo.point;
+						hitPoint.y = transform.position.y;
+						float distance = Vector3.Distance (hitPoint, transform.position);
+						if (distance < attackRange) {
+							//공격
+							attackTarget = hitInfo.collider.transform;
+							ChangeState (State.Attacking);
+
+						} else
+							SendMessage ("SetDestination", hitInfo.point);
+					}
 				}
 			}
 		}

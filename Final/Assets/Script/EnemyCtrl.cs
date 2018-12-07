@@ -31,7 +31,8 @@ public class EnemyCtrl : MonoBehaviour {
 	State state = State.Walking;		// 현재 스테이트.
 	State nextState = State.Walking;	// 다음 스테이트.
 	
-	
+	int currentround = 1; //다음라운드체크
+
 	// Use this for initialization
 	void Start () {
         status = GetComponent<CharacterStatus>();
@@ -81,8 +82,19 @@ public class EnemyCtrl : MonoBehaviour {
 			// 체력이 0이므로 사망 스테이트로 전환한다.
 			ChangeState(State.Died);
 		}
+		if(currentround != GameObject.Find("GameDirector").GetComponent<GameDirector>().round)
+		{ 			//라운드 변경시 적강화
+			NextRound ();
+			currentround = GameObject.Find ("GameDirector").GetComponent<GameDirector> ().round;
+		}
+
 	}
-	
+	void NextRound(){
+		//라운드마다 적강화
+		GetComponent<CharacterStatus> ().HP += 50;
+		GetComponent<CharacterStatus> ().MaxHP += 50;
+		GetComponent<CharacterStatus> ().Power += 20;
+	}
 	
 	// 스테이트를 변경한다.
 	void ChangeState(State nextState)
