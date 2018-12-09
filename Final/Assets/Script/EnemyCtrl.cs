@@ -33,6 +33,7 @@ public class EnemyCtrl : MonoBehaviour {
 	
 	int currentround = 1; //다음라운드체크
 
+
 	// Use this for initialization
 	void Start () {
         status = GetComponent<CharacterStatus>();
@@ -218,4 +219,6 @@ public class EnemyCtrl : MonoBehaviour {
     {
         attackTarget = target;
     }
+	 
+
 }

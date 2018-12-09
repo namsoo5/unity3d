@@ -22,7 +22,10 @@ public class BombCtrl : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){
-		
+		if (other.gameObject.tag == "barricade") { //땅에닿아도사라짐
+			this.GetComponent<ParticleSystem> ().Play ();  //폭발파티클
+			touch = true;
+		}
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -32,12 +35,8 @@ public class BombCtrl : MonoBehaviour {
 			other.GetComponent<CharacterStatus> ().HP -= 80;
 			touch = true;
 		} 
+
 	}
 
 
-	/*public void Shoot(Vector3 dir)
-	{
-	GetComponent<Rigidbody> ().AddForce (dir); //폭탄날라감
-	}
-	*/
 }

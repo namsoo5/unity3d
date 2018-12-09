@@ -14,8 +14,8 @@ public class StrongAttackCtrl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		timer += Time.deltaTime;  //닿고나서 3초후삭제
-		if (timer >= 1 ) {  //3초뒤삭제
+		timer += Time.deltaTime; 
+		if (timer >= 1 ) {  //1초뒤삭제
 			Destroy (this.gameObject);
 		}
 		if(timer>=0.15f){

@@ -60,6 +60,8 @@
      <Compile Include="Assets\Script\PlayerCtrl.cs" />
      <Compile Include="Assets\Script\SearchArea.cs" />
      <Compile Include="Assets\Script\StrongAttackCtrl.cs" />
+     <Compile Include="Assets\Script\barricadectrl.cs" />
+     <Compile Include="Assets\Script\barricadedelete.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CannonBehavior.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CreateSinShapedLineStrip.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\ShotBehavior.cs" />

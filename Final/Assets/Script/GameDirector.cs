@@ -72,7 +72,7 @@ public class GameDirector : MonoBehaviour {
 	public void powerup(){  //공업버튼
 		if (Player.GetComponent<PlayerCtrl> ().money >= PowerUpMoney) {
 			Player.GetComponent<PlayerCtrl> ().money -= PowerUpMoney;
-			Player.GetComponent<CharacterStatus> ().Power += 10;
+			Player.GetComponent<CharacterStatus> ().Power += 20;
 			PowerUpMoney += 200;
 			PowerMoneyText.GetComponent<Text> ().text = PowerUpMoney.ToString ("F0");
 		}
