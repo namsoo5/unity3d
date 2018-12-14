@@ -15,7 +15,7 @@ public class GameDirector : MonoBehaviour {
 	GameObject BobmMoneyText;
 	float time=20;  //라운드타이머
 	public int round=1;
-
+	public bool last = false; //마지막라운드체크
 
 	// Use this for initialization
 	void Start () {
@@ -36,22 +36,23 @@ public class GameDirector : MonoBehaviour {
 		int power = Player.GetComponent<CharacterStatus> ().Power;
 		Infotext.GetComponent<Text> ().text = "Hp: " + hp + " / "+maxhp+"\n" + "Power: " + power;
 
-		if (round != 4) {
+		if (round < 4 && !last) {
 			time -= Time.deltaTime;
 		}
 		if(round<3)
-			RoundCountText.GetComponent<Text> ().text = "ROUND"+round+ "\n00:" + time.ToString("F2");  //라운드타이머
+			RoundCountText.GetComponent<Text> ().text = "ROUND"+round+ "\n00:" + time.ToString("F0");  //라운드타이머
 		else//마지막라운드
-			RoundCountText.GetComponent<Text> ().text = "Final\n00:" + time.ToString("F2");  //라운드타이머
+			RoundCountText.GetComponent<Text> ().text = "Final\n00:" + time.ToString("F0");  //라운드타이머
 
 			
-		if (time <= 0 && round <4) {
+		if (time <= 0 && round < 3) {
 			//다음라운드넘어가기
-			time=20;
+			time = 20;
 			round += 1;
-	
 			Player.GetComponent<CharacterStatus> ().HP = Player.GetComponent<CharacterStatus> ().MaxHP; //새라운드풀피로시작
 			Player.GetComponent<PlayerCtrl> ().money += 500;
+		} else if (time <= 0 && round == 3) {
+			last = true;
 		}
 
 

@@ -18,7 +18,7 @@ public class StrongAttackCtrl : MonoBehaviour {
 		if (timer >= 1 ) {  //1초뒤삭제
 			Destroy (this.gameObject);
 		}
-		if(timer>=0.15f){
+		if(timer>=0.1f){
 			GetComponent<Collider>().enabled = true; //데미지중첩방지
 		}
 	}

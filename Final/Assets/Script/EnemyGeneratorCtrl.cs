@@ -31,6 +31,8 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 			if(makeround <= cround)
 				Generate ();
 			yield return new WaitForSeconds (3.0f);
+			if (cround == 3)
+				break;
 		}
 	}
 

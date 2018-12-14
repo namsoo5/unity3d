@@ -38,6 +38,9 @@ public class PlayerCtrl : MonoBehaviour {
 	public GameObject bullet;
 	public Transform firePos;
 
+	//공격아이템획득시
+	public int poweritem = 0;
+	float timer=0;
 
 	public void GetMoney(int money){
 		this.money += money;
@@ -98,7 +101,7 @@ public class PlayerCtrl : MonoBehaviour {
 		//돈상태업데이트
 		moneytext.GetComponent<Text>().text = this.money.ToString("F0")+ " $";
 
-		if (Input.GetKeyDown (KeyCode.Space)) {  //폭탄던지기
+		if (Input.GetKeyDown(KeyCode.Q)) {  //폭탄던지기   (KeyCode.Space)
 			/*GameObject bomb = Instantiate (BombPrefab) as GameObject;
 			float x = transform.position.x;
 			float y = transform.position.y + 1.5f;
@@ -112,8 +115,28 @@ public class PlayerCtrl : MonoBehaviour {
 				bombcount--;
 			}
 		}
+			
+
+
+
 		//폭탄갯수갱신
 		GameObject.Find("BombCount").GetComponent<Text>().text=bombcount.ToString("F0");
+
+		//공격아이템지속시간
+		if (poweritem>0 ) {
+			timer += Time.deltaTime;
+
+		}
+		if (timer >= 5) {
+			poweritem--;
+			timer = 0;
+			GetComponent<CharacterStatus> ().Power -= 100;
+
+		}
+
+
+
+
 
 
 		switch (state) {
@@ -218,4 +241,6 @@ public class PlayerCtrl : MonoBehaviour {
 		status.attacking = false;
 		status.died = false;
 	}
+
+
 }

@@ -45,12 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\SceneBackground\movetitle.cs" />
      <Compile Include="Assets\Script\AttackArea.cs" />
      <Compile Include="Assets\Script\AttackAreaActivator.cs" />
      <Compile Include="Assets\Script\BombCtrl.cs" />
      <Compile Include="Assets\Script\CharaAnimation.cs" />
      <Compile Include="Assets\Script\CharacterMove.cs" />
      <Compile Include="Assets\Script\CharacterStatus.cs" />
+     <Compile Include="Assets\Script\DragonCtrl.cs" />
      <Compile Include="Assets\Script\EnemyCtrl.cs" />
      <Compile Include="Assets\Script\EnemyGeneratorCtrl.cs" />
      <Compile Include="Assets\Script\FollowCamera.cs" />
@@ -62,6 +64,12 @@
      <Compile Include="Assets\Script\StrongAttackCtrl.cs" />
      <Compile Include="Assets\Script\barricadectrl.cs" />
      <Compile Include="Assets\Script\barricadedelete.cs" />
+     <Compile Include="Assets\Script\billboad.cs" />
+     <Compile Include="Assets\Script\boxCtrl.cs" />
+     <Compile Include="Assets\Script\fireCtrl.cs" />
+     <Compile Include="Assets\Script\hpsliderCtrl.cs" />
+     <Compile Include="Assets\Script\itemCtrl_hp.cs" />
+     <Compile Include="Assets\Script\itemCtrl_power.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CannonBehavior.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CreateSinShapedLineStrip.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\ShotBehavior.cs" />

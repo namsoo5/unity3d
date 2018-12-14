@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class CharacterMove : MonoBehaviour {
+
+
 	//중력
 	const float GravityPower = 9.8f;
 	//목적지에 도착했다고 보는 정지 거리
@@ -83,6 +85,8 @@ public class CharacterMove : MonoBehaviour {
 				transform.rotation = Quaternion.RotateTowards (transform.rotation,
 					characterTargetRotation, rotationSpeed * Time.deltaTime);
 			}
+
+
 		}
 
 

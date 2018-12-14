@@ -14,18 +14,18 @@ public class CharaAnimation : MonoBehaviour {
 		return attacked;
 	}
 
-	void StartAttackHit(){
+	/*void StartAttackHit(){
 		
 		Debug.Log ("StartAttackHit");
 	}
 
 	void EndAttackHit(){
 		Debug.Log ("EndAttackHit");
-	}
+	}*/
 
 	void EndAttack(){
 		attacked = true;
-		Debug.Log ("End");
+		//Debug.Log ("End");
 	}
 
 	// Use this for initialization

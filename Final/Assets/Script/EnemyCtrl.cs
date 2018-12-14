@@ -85,16 +85,17 @@ public class EnemyCtrl : MonoBehaviour {
 		}
 		if(currentround != GameObject.Find("GameDirector").GetComponent<GameDirector>().round)
 		{ 			//라운드 변경시 적강화
-			NextRound ();
+			NextRound (GameObject.Find("GameDirector").GetComponent<GameDirector>().round);
 			currentround = GameObject.Find ("GameDirector").GetComponent<GameDirector> ().round;
 		}
 
 	}
-	void NextRound(){
+	void NextRound(int round){
 		//라운드마다 적강화
-		GetComponent<CharacterStatus> ().HP += 50;
-		GetComponent<CharacterStatus> ().MaxHP += 50;
-		GetComponent<CharacterStatus> ().Power += 20;
+		GetComponent<CharacterStatus> ().HP += 50*(round-1);
+		GetComponent<CharacterStatus> ().MaxHP += 50*(round-1);
+		GetComponent<CharacterStatus> ().Power += 20*(round-1);
+		this.money += 100*(round-1);
 	}
 	
 	// 스테이트를 변경한다.
@@ -186,8 +187,12 @@ public class EnemyCtrl : MonoBehaviour {
     void dropItem()
     {
         if (dropItemPrefab.Length == 0) { return; }
-        GameObject dropItem = dropItemPrefab[Random.Range(0, dropItemPrefab.Length)];
-        Instantiate(dropItem, transform.position, Quaternion.identity);
+
+		int rnum = Random.Range (0, 5);
+		if (rnum == 0) { 
+			GameObject dropItem = dropItemPrefab [Random.Range (0, dropItemPrefab.Length)];
+			Instantiate (dropItem, transform.position, Quaternion.identity);
+		}
     }
 
     void Died()

@@ -13,10 +13,10 @@ public class BombCtrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(touch){
-			timer += Time.deltaTime;  //닿고나서 3초후삭제
+			timer += Time.deltaTime;  //닿고나서 1초후삭제
 
 		}
-		if (timer >= 1 ) {  //2초뒤삭제
+		if (timer >= 1 ) {  //1초뒤삭제
 			Destroy (this.gameObject);
 		}
 	}

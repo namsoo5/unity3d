@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FollowCamera : MonoBehaviour {
 
-	public float distance = 5.0f;
+	public float distance = 6.0f;
 	public float horizontalAngle = 0.0f;
 	public float rotAngle = 180.0f;		//화면가로폭만큼커서를이동시켰을때 몇도회전하는가
 	public float verticalAngle = 10.0f;
