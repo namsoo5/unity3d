@@ -17,6 +17,12 @@ public class DragonCtrl : MonoBehaviour {
 
 	public Transform fireEnemyPos1;
 
+	public GameObject box;
+
+	public bool die=false;
+
+	public Transform itempos;
+
 	float timer=0;
 	// Use this for initialization
 	void Start () {
@@ -63,5 +69,18 @@ public class DragonCtrl : MonoBehaviour {
 				FireEnemy ();
 			timer = 0;
 		}
+
+		if (GetComponent<CharacterStatus>().HP<=0) {
+			die = true;
+		}
+		if(die){
+			clearItem ();
+			die = false;
+		}
+	}
+
+	void clearItem(){
+		GameObject dropItem =box;
+		Instantiate (dropItem, itempos.position, Quaternion.identity);
 	}
 }

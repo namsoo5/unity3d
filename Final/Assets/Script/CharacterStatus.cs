@@ -22,10 +22,14 @@ public class CharacterStatus : MonoBehaviour {
 	public bool attacking = false;
 	public bool died = false;
 
+	bool statedie=true;//죽은상태1번실행
+
+	//스킬에맞은 hp0일떄 die
+	GameObject PlayCtrl;
 
 	// Use this for initialization
 	void Start () {
-	
+		PlayCtrl = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
@@ -34,6 +38,13 @@ public class CharacterStatus : MonoBehaviour {
 		if (HP > MaxHP) {
 			HP = MaxHP;
 		}
-	
+		if (HP <= 0)
+			HP = 0;
+
+		if (HP == 0 && statedie) {
+			PlayCtrl.GetComponent<PlayerCtrl> ().SkillDamage ();
+			statedie = false;
+		}
+		
 	}
 }

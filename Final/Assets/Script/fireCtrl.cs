@@ -22,7 +22,8 @@ public class fireCtrl : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player") {
-			other.GetComponent<CharacterStatus> ().HP -= 5;
+			if(other.GetComponent<CharacterStatus>().HP>0)
+				other.GetComponent<CharacterStatus> ().HP -= 5;
 			Destroy (this.gameObject);
 		} 
 

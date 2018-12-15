@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class movetitle : MonoBehaviour {
 	int timer=0;
 	int n =1;
+
 	// Use this for initialization
 	void Start () {
 
@@ -28,10 +29,6 @@ public class movetitle : MonoBehaviour {
 		SceneManager.LoadScene ("GameScene_12_04");
 	}
 
-	public void explainclick(){
-		SceneManager.LoadScene ("ExplainScene");
-	}
-	
 		
 
 

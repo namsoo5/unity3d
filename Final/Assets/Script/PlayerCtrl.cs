@@ -42,6 +42,9 @@ public class PlayerCtrl : MonoBehaviour {
 	public int poweritem = 0;
 	float timer=0;
 
+	//key획득여부
+	public bool key = false;
+
 	public void GetMoney(int money){
 		this.money += money;
 	}
@@ -234,6 +237,14 @@ public class PlayerCtrl : MonoBehaviour {
 			//체력이0이로사망 스테이트로전환
 			ChangeState(State.Died);
 		}
+	}
+
+	//스킬데미지로인한 사망
+	public void SkillDamage(){
+		
+		//체력이0이로사망 스테이트로전환
+		ChangeState(State.Died);
+
 	}
 
 	//스테이트가시작되기전에 status를 초기화

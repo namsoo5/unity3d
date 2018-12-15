@@ -199,7 +199,7 @@ public class EnemyCtrl : MonoBehaviour {
 	{
         status.died = true;
 		GameObject.Find("Player").GetComponent<PlayerCtrl> ().GetMoney (money);
-        dropItem();
+        //dropItem();
         Destroy(gameObject);
     }
 	

@@ -17,6 +17,7 @@ public class GameDirector : MonoBehaviour {
 	public int round=1;
 	public bool last = false; //마지막라운드체크
 
+
 	// Use this for initialization
 	void Start () {
 		Infotext = GameObject.Find ("InfoText");  //hp,power텍스트
@@ -87,6 +88,7 @@ public class GameDirector : MonoBehaviour {
 		}
 
 	}
+		
 
 
 }

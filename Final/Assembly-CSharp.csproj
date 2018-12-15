@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\SceneBackground\explain.cs" />
      <Compile Include="Assets\SceneBackground\movetitle.cs" />
      <Compile Include="Assets\Script\AttackArea.cs" />
      <Compile Include="Assets\Script\AttackAreaActivator.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Script\EnemyCtrl.cs" />
      <Compile Include="Assets\Script\EnemyGeneratorCtrl.cs" />
      <Compile Include="Assets\Script\FollowCamera.cs" />
+     <Compile Include="Assets\Script\GameClear.cs" />
      <Compile Include="Assets\Script\GameDirector.cs" />
      <Compile Include="Assets\Script\HitArea.cs" />
      <Compile Include="Assets\Script\InputManager.cs" />
@@ -65,11 +67,14 @@
      <Compile Include="Assets\Script\barricadectrl.cs" />
      <Compile Include="Assets\Script\barricadedelete.cs" />
      <Compile Include="Assets\Script\billboad.cs" />
+     <Compile Include="Assets\Script\blockCtrl.cs" />
      <Compile Include="Assets\Script\boxCtrl.cs" />
+     <Compile Include="Assets\Script\doorCtrl.cs" />
      <Compile Include="Assets\Script\fireCtrl.cs" />
      <Compile Include="Assets\Script\hpsliderCtrl.cs" />
      <Compile Include="Assets\Script\itemCtrl_hp.cs" />
      <Compile Include="Assets\Script\itemCtrl_power.cs" />
+     <Compile Include="Assets\Script\keyCtrl.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CannonBehavior.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CreateSinShapedLineStrip.cs" />
      <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\ShotBehavior.cs" />
@@ -80,9 +85,11 @@
      <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
      <Compile Include="Assets\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
      <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+     <None Include="Assets\StoneKeep\Readme.txt" />
      <None Include="Assets\VolumetricLines\Shaders\Additive.shader" />
      <None Include="Assets\VolumetricLines\Shaders\AlphaBlended.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\Models\Key\readME keys.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\VolumetricLines\Shaders\Strip-Additive.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
