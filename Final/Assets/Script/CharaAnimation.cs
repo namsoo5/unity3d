@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class CharaAnimation : MonoBehaviour {
 
 	Animator animator;
@@ -15,11 +15,9 @@ public class CharaAnimation : MonoBehaviour {
 	}
 
 	/*void StartAttackHit(){
-		
-		Debug.Log ("StartAttackHit");
 	}
-
-	void EndAttackHit(){
+*/
+	/*void EndAttackHit(){
 		Debug.Log ("EndAttackHit");
 	}*/
 

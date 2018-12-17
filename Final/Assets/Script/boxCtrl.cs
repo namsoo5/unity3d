@@ -11,6 +11,8 @@ public class boxCtrl : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> ();
 		GetComponent<Rigidbody> ().AddForce (transform.up * 300f);
+		GetComponent<Rigidbody> ().AddForce (transform.forward*-100f);
+		GetComponent<Collider> ().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -30,13 +32,16 @@ public class boxCtrl : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 			animator.SetTrigger ("open");
+			GetComponent<AudioSource> ().Play();
 			open = true;
 
-
 		} 
-
 	}
 
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "barricade")
+			GetComponent<Collider> ().enabled = true;
+	}
 	void dropkey(){
 		GameObject dropItem =key;
 		Instantiate (dropItem, transform.position, Quaternion.identity);

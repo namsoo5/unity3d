@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerCtrl : MonoBehaviour {
 
 	const float RayCastMaxDistance = 100.0f;
@@ -40,7 +40,8 @@ public class PlayerCtrl : MonoBehaviour {
 
 	//공격아이템획득시
 	public int poweritem = 0;
-	float timer=0;
+	public int healitem=0;
+
 
 	//key획득여부
 	public bool key = false;
@@ -48,6 +49,10 @@ public class PlayerCtrl : MonoBehaviour {
 	public void GetMoney(int money){
 		this.money += money;
 	}
+
+	bool statedie =true; //죽음에니메이션한번실행
+	bool diescene=false;//실패씬으로전환타이머시작
+	float scenechangetimer=0;
 
 
 	// Use this for initialization
@@ -61,12 +66,14 @@ public class PlayerCtrl : MonoBehaviour {
 
 	//일정이상업글시 관통공격
 	void StartAttackHit(){
-		 if (status.Power >= 100) {
+		GetComponent<AudioSource> ().Play ();
+		 if (status.Power >= 150) {
 			Fireattack ();
 			Fireattack1 ();
 		}else if (status.Power >= 50) {
 			Fireattack ();
 		}
+
 	}
 
 	void Fire()
@@ -120,24 +127,22 @@ public class PlayerCtrl : MonoBehaviour {
 		}
 			
 
-
-
 		//폭탄갯수갱신
 		GameObject.Find("BombCount").GetComponent<Text>().text=bombcount.ToString("F0");
 
-		//공격아이템지속시간
-		if (poweritem>0 ) {
-			timer += Time.deltaTime;
 
-		}
-		if (timer >= 5) {
-			poweritem--;
-			timer = 0;
-			GetComponent<CharacterStatus> ().Power -= 100;
-
+		if ((status.HP == 0) && statedie) {  //스킬로인한 죽음시
+			SkillDamage ();
+			statedie = false;
 		}
 
 
+		if (diescene) {  //defeatScene으로 4초뒤전환
+			scenechangetimer += Time.deltaTime;
+			if(scenechangetimer>4)
+				SceneManager.LoadScene ("DefeatScene");
+			
+		}
 
 
 
@@ -234,6 +239,7 @@ public class PlayerCtrl : MonoBehaviour {
 		if(status.HP <=0)
 		{
 			status.HP = 0;
+			diescene = true;
 			//체력이0이로사망 스테이트로전환
 			ChangeState(State.Died);
 		}
@@ -243,6 +249,7 @@ public class PlayerCtrl : MonoBehaviour {
 	public void SkillDamage(){
 		
 		//체력이0이로사망 스테이트로전환
+		diescene=true;
 		ChangeState(State.Died);
 
 	}
@@ -252,6 +259,7 @@ public class PlayerCtrl : MonoBehaviour {
 		status.attacking = false;
 		status.died = false;
 	}
+
 
 
 }

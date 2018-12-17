@@ -52,17 +52,25 @@
      <None Include="Assets\StoneKeep\Readme.txt" />
      <None Include="Assets\VolumetricLines\Shaders\Additive.shader" />
      <None Include="Assets\VolumetricLines\Shaders\AlphaBlended.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Models\Key\readME keys.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
      <None Include="Assets\VolumetricLines\Shaders\Strip-Additive.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
+     <None Include="Assets\Particlecollection_Free samples\READ ME.txt" />
      <None Include="Assets\VolumetricLines\Shaders\Fast-AlphaBlended.shader" />
      <None Include="Assets\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
      <None Include="Assets\VolumetricLines\Shaders\Fast-Additive.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
      <None Include="Assets\VolumetricLines\Shaders\_SimpleShader.cginc" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Additive.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

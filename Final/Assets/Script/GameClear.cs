@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameClear : MonoBehaviour {
 
 
 	public void gameClear(){
-		Debug.Log ("끝");
+		SceneManager.LoadScene ("ClearScene");
 	}
 
 	void OnTriggerEnter(Collider other){

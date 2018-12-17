@@ -19,7 +19,7 @@ public class DragonCtrl : MonoBehaviour {
 
 	public GameObject box;
 
-	public bool die=false;
+	public int die=0;   //상자1개생성
 
 	public Transform itempos;
 
@@ -70,12 +70,12 @@ public class DragonCtrl : MonoBehaviour {
 			timer = 0;
 		}
 
-		if (GetComponent<CharacterStatus>().HP<=0) {
-			die = true;
+		if (GetComponent<CharacterStatus>().HP<=0 && die==0) {
+			die = 1;
 		}
-		if(die){
+		if(die>0){
 			clearItem ();
-			die = false;
+			die=-1;
 		}
 	}
 

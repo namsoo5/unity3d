@@ -5,6 +5,7 @@ public class AttackArea : MonoBehaviour {
 
 	CharacterStatus status;
 
+
 	// Use this for initialization
 	void Start () {
 		status = transform.root.GetComponent<CharacterStatus> ();
@@ -35,6 +36,10 @@ public class AttackArea : MonoBehaviour {
 		//공격한대상저장
 		status.lastAttackTarget = other.transform.root.gameObject;
 	}
+
+
+
+
 
 	//공격판정 유효로한다
 	void OnAttack(){

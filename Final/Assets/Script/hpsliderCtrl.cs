@@ -14,7 +14,7 @@ public class hpsliderCtrl : MonoBehaviour {
 	void Update () {
 		//라운드상승마다 적들 강화에따른 체력게이지최대량 증가
 		if(GameDirector.GetComponent<GameDirector>().round != cround){
-			GetComponent<Slider> ().maxValue += 50*(GameDirector.GetComponent<GameDirector>().round-1);
+			GetComponent<Slider> ().maxValue += 40*(GameDirector.GetComponent<GameDirector>().round-1);
 			cround = GameDirector.GetComponent<GameDirector> ().round;
 		}
 

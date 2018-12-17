@@ -92,10 +92,10 @@ public class EnemyCtrl : MonoBehaviour {
 	}
 	void NextRound(int round){
 		//라운드마다 적강화
-		GetComponent<CharacterStatus> ().HP += 50*(round-1);
-		GetComponent<CharacterStatus> ().MaxHP += 50*(round-1);
-		GetComponent<CharacterStatus> ().Power += 20*(round-1);
-		this.money += 100*(round-1);
+		GetComponent<CharacterStatus> ().HP += 40*(round-1);
+		GetComponent<CharacterStatus> ().MaxHP += 40*(round-1);
+		GetComponent<CharacterStatus> ().Power += 5*(round-1);
+		this.money += 200*(round-1);
 	}
 	
 	// 스테이트를 변경한다.
@@ -189,9 +189,10 @@ public class EnemyCtrl : MonoBehaviour {
         if (dropItemPrefab.Length == 0) { return; }
 
 		int rnum = Random.Range (0, 5);
+		Vector3 cpos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
 		if (rnum == 0) { 
 			GameObject dropItem = dropItemPrefab [Random.Range (0, dropItemPrefab.Length)];
-			Instantiate (dropItem, transform.position, Quaternion.identity);
+			Instantiate (dropItem, cpos, Quaternion.identity);
 		}
     }
 
@@ -199,7 +200,7 @@ public class EnemyCtrl : MonoBehaviour {
 	{
         status.died = true;
 		GameObject.Find("Player").GetComponent<PlayerCtrl> ().GetMoney (money);
-        //dropItem();
+        dropItem();
         Destroy(gameObject);
     }
 	

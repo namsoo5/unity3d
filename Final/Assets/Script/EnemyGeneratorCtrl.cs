@@ -13,6 +13,10 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	int cround =1;  //현재라운드
 	public int makeround=1; //라운드별로 만드는 유닛달르게하기위한 변수
 	GameObject GameDirector;
+
+	float breaktime = 0;//정비시간
+	bool breakstate=false;
+	bool start=true;
 	// Use this for initialization
 	void Start () {
 		//배열확보
@@ -28,9 +32,14 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	IEnumerator Exec()
 	{
 		while (true) {
-			if(makeround <= cround)
-				Generate ();
-			yield return new WaitForSeconds (3.0f);
+			if (makeround <= cround) {
+				if (start) {
+					breakstate = false;
+					breaktime = 0;
+					Generate ();
+				}
+			}
+			yield return new WaitForSeconds (2.0f);
 			if (cround == 3)
 				break;
 		}
@@ -57,7 +66,11 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (GameDirector.GetComponent<GameDirector> ().round != cround) {  //다음라운드시 모든몹제거
+
+
+		if (GameDirector.GetComponent<GameDirector> ().round != cround ) {  //다음라운드시 모든몹제거
+			breakstate = true;
+			start = false;
 			for (int enemyCount = 0; enemyCount < maxEnemy; ++enemyCount) {
 				if (existEnemys [enemyCount] != null) {
 					Destroy (existEnemys [enemyCount]);
@@ -65,5 +78,16 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 			}
 			cround++;
 		}
+
+
+		if (breakstate)
+			breaktime += Time.deltaTime;
+	
+		if (breaktime > 5) {
+			start = true;
+
+		}
+	
+	
 	}
 }

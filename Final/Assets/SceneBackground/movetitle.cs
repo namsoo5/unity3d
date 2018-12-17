@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+
 public class movetitle : MonoBehaviour {
 	int timer=0;
 	int n =1;

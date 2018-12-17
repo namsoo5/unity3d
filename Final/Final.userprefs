@@ -1,26 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SceneBackground\explain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\SearchArea.cs">
     <Files>
-      <File FileName="Assets\SceneBackground\explain.cs" Line="22" Column="39" />
-      <File FileName="Assets\SceneBackground\movetitle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\PlayerCtrl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\itemCtrl_power.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\EnemyCtrl.cs" Line="191" Column="32" />
+      <File FileName="Assets\Script\billboad.cs" Line="1" Column="1" />
+      <File FileName="Assets\SceneBackground\explain.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\DragonCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\blockCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\barricadectrl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\EnemyGeneratorCtrl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\EnemyGeneratorCtrl.cs" Line="42" Column="43" />
       <File FileName="Assets\Script\BombCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\FollowCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\CharaAnimation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PlayerCtrl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\SearchArea.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\SearchArea.cs" Line="7" Column="17" />
       <File FileName="Assets\Script\CharacterMove.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\barricadedelete.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\AttackAreaActivator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameDirector.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\itemCtrl_power.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\itemCtrl_hp.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\EnemyCtrl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\boxCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\hpsliderCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\HitArea.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\fireCtrl.cs" Line="1" Column="1" />
@@ -30,6 +28,10 @@
       <File FileName="Assets\Script\doorCtrl.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GameClear.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\CharacterStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets\SceneBackground\goStartScene.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\AttackArea.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameDirector.cs" Line="66" Column="20" />
+      <File FileName="Assets\Script\boxCtrl.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

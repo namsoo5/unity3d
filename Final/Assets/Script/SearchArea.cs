@@ -14,7 +14,7 @@ public class SearchArea : MonoBehaviour {
 	void Update(){
 		
 		wait += Time.deltaTime;
-		if (wait >= 1)
+		if (wait >= 0.5f)
 			go = true;  //초기시작시 오류제거
 	}
 
