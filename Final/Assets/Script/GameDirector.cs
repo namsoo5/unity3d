@@ -63,7 +63,7 @@ public class GameDirector : MonoBehaviour {
 			time = 20;
 			round += 1;
 			next = true;  //정비시간
-			if(hp>0&&round<2)//죽지않을경우만
+			if(hp>0&&round<3)//죽지않을경우만
 				Player.GetComponent<CharacterStatus> ().HP = Player.GetComponent<CharacterStatus> ().MaxHP; //새라운드풀피로시작
 			Player.GetComponent<PlayerCtrl> ().money += 500;
 		} //else if (time <= 0 && round == 3) {

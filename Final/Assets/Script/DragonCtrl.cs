@@ -63,7 +63,7 @@ public class DragonCtrl : MonoBehaviour {
 			Fireattack ();
 			//timer = 0;
 		}
-		if (timer > 10) {
+		if (timer > 10 && GameObject.Find("GameDirector").GetComponent<GameDirector>().round==3) {
 			int n = Random.Range (0, 2);
 			if(n==0)
 				FireEnemy ();
